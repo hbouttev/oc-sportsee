@@ -34,7 +34,6 @@ const WEEKDAYS: Weekdays = {
 export default function AverageSessionGraph({
   userAverageSession,
 }: AverageSessionGraphProps) {
-  console.log('userAverageSession', userAverageSession);
   const data = userAverageSession.sessions.map((session) => {
     return {
       name: WEEKDAYS[session.day],
@@ -64,11 +63,7 @@ export default function AverageSessionGraph({
       height="100%"
       className="rounded-[0.3125rem] bg-[#FF0000] pb-3 shadow-[0_2px_4px_0px_rgba(0,0,0,0.02)] hover:before:bg-black/10"
     >
-      <LineChart
-        data={data}
-        // onMouseOver={(e) => console.log('MouseOver e :', e)}
-        // onMouseMove={(e) => console.log('MouseMove e :', e)}
-      >
+      <LineChart data={data}>
         <defs>
           <linearGradient id="colorLength" x1="0" y1="1" x2="1" y2="1">
             <stop offset="5%" stopColor="#FFFFFF" stopOpacity={0.4} />

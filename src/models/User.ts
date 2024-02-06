@@ -23,7 +23,6 @@ export async function fetchUser(
     return userAdapter(mockedUser);
   }
 
-  console.log('URL:', `${import.meta.env.VITE_API_HOST}/user/${id}`);
   const response = await fetch(
     `${import.meta.env.VITE_API_HOST}/user/${id}`,
     config
@@ -31,9 +30,7 @@ export async function fetchUser(
   if (response.status !== 200) {
     throw response;
   }
-  console.log('Response:', response);
   const user: UserWithScore | UserWithTodayScore = (await response.json()).data;
-  console.log('User:', user);
 
   return userAdapter(user);
 }
