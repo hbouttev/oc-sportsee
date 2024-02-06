@@ -61,7 +61,7 @@ export default function AverageSessionGraph({
     <ResponsiveContainer
       width="100%"
       height="100%"
-      className="rounded-[0.3125rem] bg-[#FF0000] pb-3 shadow-[0_2px_4px_0px_rgba(0,0,0,0.02)] hover:before:bg-black/10"
+      className="rounded-[0.3125rem] bg-[#FF0000] pb-3 shadow-[0_2px_4px_0px_rgba(0,0,0,0.02)]"
     >
       <LineChart data={data}>
         <defs>
@@ -80,11 +80,7 @@ export default function AverageSessionGraph({
           tickMargin={10}
           tick={<CustomTick />}
         />
-        <Tooltip
-          // cursor={{ stroke: '#000000', strokeOpacity: 0.1, strokeWidth: 10 }}
-          cursor={false}
-          content={renderTooltip}
-        />
+        <Tooltip cursor={false} content={renderTooltip} />
         <Legend
           align="left"
           verticalAlign="top"

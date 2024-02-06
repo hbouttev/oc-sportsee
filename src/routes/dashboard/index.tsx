@@ -57,7 +57,6 @@ export default function Dashboard() {
       <div className="mt-8 flex w-full flex-col-reverse justify-between gap-8 xl:flex-row">
         <div className="flex w-full flex-wrap justify-between gap-y-6">
           <div className="h-[20rem] w-full">
-            {/*w-[50rem]*/}
             <DailyActivityGraph userActivity={userActivity} />
           </div>
           <div className="aspect-square w-[31%]">
