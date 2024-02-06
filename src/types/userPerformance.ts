@@ -7,7 +7,7 @@ export interface PerformanceKind {
   6: 'intensity';
 }
 
-export const performanceKindTransalted: {
+export const performanceKindTranslated: {
   [key in keyof PerformanceKind]: string;
 } = {
   1: 'Cardio',

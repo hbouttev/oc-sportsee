@@ -1,5 +1,5 @@
 import type { UserPerformance } from '~/types/userPerformance.ts';
-import { performanceKindTransalted } from '~/types/userPerformance.ts';
+import { performanceKindTranslated } from '~/types/userPerformance.ts';
 import {
   ResponsiveContainer,
   RadarChart,
@@ -17,7 +17,7 @@ export default function PerformanceGraph({
 }: PerformanceGraphProps) {
   const data = userPerformance.data.map((performance) => {
     return {
-      subject: performanceKindTransalted[performance.kind],
+      subject: performanceKindTranslated[performance.kind],
       value: performance.value,
       fullMark: 250,
     };
