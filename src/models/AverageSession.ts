@@ -1,4 +1,5 @@
 import type { UserAverageSession } from '~/types/userAverageSession';
+import type { ParsedJSONResponse } from '~/types/api';
 
 export async function fetchUserAverageSession(
   id: number,
@@ -16,6 +17,8 @@ export async function fetchUserAverageSession(
   if (response.status !== 200) {
     throw response;
   }
+  const userAverageSession: ParsedJSONResponse<UserAverageSession> =
+    await response.json();
 
-  return (await response.json()).data;
+  return userAverageSession.data;
 }

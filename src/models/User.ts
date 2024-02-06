@@ -1,4 +1,5 @@
 import type { User, UserWithScore, UserWithTodayScore } from '~/types/user';
+import type { ParsedJSONResponse } from '~/types/api';
 
 export function userAdapter(user: UserWithScore | UserWithTodayScore): User {
   if ('score' in user) {
@@ -30,7 +31,8 @@ export async function fetchUser(
   if (response.status !== 200) {
     throw response;
   }
-  const user: UserWithScore | UserWithTodayScore = (await response.json()).data;
+  const user: ParsedJSONResponse<UserWithScore | UserWithTodayScore> =
+    await response.json();
 
-  return userAdapter(user);
+  return userAdapter(user.data);
 }

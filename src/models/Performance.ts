@@ -1,4 +1,5 @@
 import type { UserPerformance } from '~/types/userPerformance';
+import type { ParsedJSONResponse } from '~/types/api';
 
 export async function fetchUserPerformance(
   id: number,
@@ -16,6 +17,8 @@ export async function fetchUserPerformance(
   if (response.status !== 200) {
     throw response;
   }
+  const userPerformance: ParsedJSONResponse<UserPerformance> =
+    await response.json();
 
-  return (await response.json()).data;
+  return userPerformance.data;
 }

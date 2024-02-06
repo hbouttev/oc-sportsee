@@ -1,4 +1,5 @@
 import type { UserActivity } from '~/types/userActivity';
+import type { ParsedJSONResponse } from '~/types/api';
 
 export async function fetchUserActivity(
   id: number,
@@ -15,6 +16,7 @@ export async function fetchUserActivity(
   if (response.status !== 200) {
     throw response;
   }
+  const userActivity: ParsedJSONResponse<UserActivity> = await response.json();
 
-  return (await response.json()).data;
+  return userActivity.data;
 }
